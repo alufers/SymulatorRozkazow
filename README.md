@@ -66,3 +66,15 @@ Przed wykonaniem instrukcji widzimy ją w formie tekstowej.
 ## Sekcja pamięci
 
 W sekscji pamięci widzimy wszystkie 256 komórek pamięci wraz z ich adresami. Każdą komórkę można edytować ręcznie jak oraz uzyskiwać dostęp z poziomu instrukcji. Podobnie jak rejestry w sekcji rejestrów, komórki pamięci są podświetlane na zielono - przy odczycie i na różowo - przy zapisie.
+
+
+### Kompilacja projektu
+
+Trzeba mieć zainstalowane środowisko Node.JS i w katalogu "kod źródłowy" uruchomić polecenia
+
+```
+npm install
+npm run build
+```
+
+Pliki wynikowe będą dostępne w katalogu `public`.

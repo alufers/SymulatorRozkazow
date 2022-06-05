@@ -321,11 +321,12 @@
   $: instructionText = (() => {
     let instruction = instructions[selectedInstruction];
     let text = instruction.name;
-    if (instruction.name !== "POP") {
-      text += " " + source;
-    }
+    
     if (instruction.name !== "PUSH") {
-      text += ", " + destination;
+      text += destination;
+    }
+    if (instruction.name !== "POP") {
+      text += ", " + source;
     }
     if (registers.DISP !== 0) {
       text = text.replace(
@@ -396,16 +397,6 @@
             {/each}
           </select>
         </div>
-        {#if selectedInstruction !== instructions.findIndex((i) => i.name === "POP")}
-          <div class="select-field">
-            <label for="" class="source">Źródło</label>
-            <select bind:value={source}>
-              {#each sourceOptions as operand}
-                <option value={operand.name}>{operand.name}</option>
-              {/each}
-            </select>
-          </div>
-        {/if}
         {#if selectedInstruction !== instructions.findIndex((i) => i.name === "PUSH")}
           <div class="select-field">
             <label for="" class="dest">Cel</label>
@@ -416,6 +407,17 @@
             </select>
           </div>
         {/if}
+        {#if selectedInstruction !== instructions.findIndex((i) => i.name === "POP")}
+          <div class="select-field">
+            <label for="" class="source">Źródło</label>
+            <select bind:value={source}>
+              {#each sourceOptions as operand}
+                <option value={operand.name}>{operand.name}</option>
+              {/each}
+            </select>
+          </div>
+        {/if}
+        
       </div>
 	  <pre>{instructionText}</pre>
 	 
